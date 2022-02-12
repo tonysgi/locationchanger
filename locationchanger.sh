@@ -62,6 +62,7 @@ fi
 if [ "$NEW_LOCATION" != "" ]; then
     if [ "$NEW_LOCATION" != "$CURRENT_LOCATION" ]; then
         ts "Changing the location to '$NEW_LOCATION'"
+        osascript -e 'display notification "Network Location Changed to '$NEW_LOCATION'" with title "Location Changer"'
         scselect "$NEW_LOCATION"
         SCRIPT="$HOME/.locations/$NEW_LOCATION"
         if [ -f "$SCRIPT" ]; then
